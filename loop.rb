@@ -71,25 +71,25 @@ class Loop
       tu = @upper_motor.go_to(pos: U1, max_velocity: VELOCITY, acceleration: ACCELERATION, start_immediately: false)
       @servo_interface.start_motion
       sleep [tl / 1000, tu / 1000].max + 0.5
-      p [@lower_motor.position, @upper_motor.position]
+      # p [@lower_motor.position, @upper_motor.position]
 
       tl = @lower_motor.go_to(pos: L2, max_velocity: VELOCITY, acceleration: ACCELERATION, start_immediately: false)
       tu = @upper_motor.go_to(pos: U2, max_velocity: VELOCITY, acceleration: ACCELERATION, start_immediately: false)
       @servo_interface.start_motion
       sleep [tl / 1000, tu / 1000].max + 0.5
-      p [@lower_motor.position, @upper_motor.position]
+      # p [@lower_motor.position, @upper_motor.position]
 
       tl = @lower_motor.go_to(pos: L3, max_velocity: VELOCITY, acceleration: ACCELERATION, start_immediately: false)
       tu = @upper_motor.go_to(pos: U3, max_velocity: VELOCITY, acceleration: ACCELERATION, start_immediately: false)
       @servo_interface.start_motion
       sleep [tl / 1000, tu / 1000].max + 0.5
-      p [@lower_motor.position, @upper_motor.position]
+      # p [@lower_motor.position, @upper_motor.position]
 
       tl = @lower_motor.go_to(pos: L4, max_velocity: VELOCITY, acceleration: ACCELERATION, start_immediately: false)
       tu = @upper_motor.go_to(pos: U4, max_velocity: VELOCITY, acceleration: ACCELERATION, start_immediately: false)
       @servo_interface.start_motion
       sleep [tl / 1000, tu / 1000].max + 0.5
-      p [@lower_motor.position, @upper_motor.position]
+      # p [@lower_motor.position, @upper_motor.position]
 
 
     end
