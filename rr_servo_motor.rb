@@ -76,7 +76,7 @@ class RRServoMotor
       add_point(point)
     end
     @interface.start_motion if start_immediately
-    points.map(&:t).sum
+    points.map(&:t).reduce(&:+)
   end
 
   def set_state_operational
