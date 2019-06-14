@@ -12,7 +12,7 @@ class Loop
   L1, U1 = 300, 150
   L2, U2 = 270, 150
   L3, U3 = 240, 100
-  L4, U4 = 300, 100
+  L4, U4 = 320, 110
 
   def initialize
     @lower_motor = initialize_motor(LOWER_MOTOR_ID)
