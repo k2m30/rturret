@@ -6,13 +6,13 @@ class Loop
   LOWER_MOTOR_ID = 34
   UPPER_MOTOR_ID = 35
 
-  VELOCITY = 50
-  ACCELERATION = 40
+  VELOCITY = 150
+  ACCELERATION = 150
 
-  L1, U1 = 150, 150
-  L2, U2 = 120, 150
-  L3, U3 = 90, 100
-  L4, U4 = 150, 100
+  L1, U1 = 300, 150
+  L2, U2 = 270, 150
+  L3, U3 = 240, 100
+  L4, U4 = 300, 100
 
   def initialize
     @lower_motor = initialize_motor(LOWER_MOTOR_ID)
@@ -34,14 +34,12 @@ class Loop
   def move_to_initial_point
     @lower_motor.clear_points_queue
     @upper_motor.clear_points_queue
-    left_point = 150
-    right_point = 150
 
-    @lower_motor.go_to(pos: left_point, max_velocity: VELOCITY, acceleration: ACCELERATION)
-    @upper_motor.go_to(pos: right_point, max_velocity: VELOCITY, acceleration: ACCELERATION)
+    @lower_motor.go_to(pos: L1, max_velocity: VELOCITY, acceleration: ACCELERATION)
+    @upper_motor.go_to(pos: U1, max_velocity: VELOCITY, acceleration: ACCELERATION)
 
-    @lower_motor.add_motion_point(left_point, 0, 0, 1000)
-    @upper_motor.add_motion_point(right_point, 0, 0, 1000)
+    @lower_motor.add_motion_point(L1, 0, 0, 1000)
+    @upper_motor.add_motion_point(U1, 0, 0, 1000)
 
     @servo_interface.start_motion
     sleep 6
@@ -79,8 +77,8 @@ class Loop
       sleep [tl / 1000, tu / 1000].max + 0.5
       # p [@lower_motor.position, @upper_motor.position]
 
-      tl = @lower_motor.go_to(pos: L3, max_velocity: VELOCITY, acceleration: ACCELERATION, start_immediately: false)
-      tu = @upper_motor.go_to(pos: U3, max_velocity: VELOCITY, acceleration: ACCELERATION, start_immediately: false)
+      tl = @lower_motor.go_to(pos: L3, max_velocity: VELOCITY*2, acceleration: ACCELERATION*2, start_immediately: false)
+      tu = @upper_motor.go_to(pos: U3, max_velocity: VELOCITY*2, acceleration: ACCELERATION*2, start_immediately: false)
       @servo_interface.start_motion
       sleep [tl / 1000, tu / 1000].max + 0.5
       # p [@lower_motor.position, @upper_motor.position]
