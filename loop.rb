@@ -54,6 +54,8 @@ class Loop
                '/dev/cu.usbmodem3011'
              when 'armv7l-linux-eabihf'
                '/dev/serial/by-id/usb-Rozum_Robotics_USB-CAN_Interface_301-if00'
+             when 'arm-linux-gnueabihf'
+               '/dev/serial/by-id/usb-Rozum_Robotics_USB-CAN_Interface_301-if00'
              else
                'unknown_os'
              end
